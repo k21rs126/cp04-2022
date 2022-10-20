@@ -161,7 +161,6 @@
             $('#btnA').prop('disabled', false);
             $('#btnB').prop('disabled', false);
             $('#btnC').prop('disabled', false);
-
         }
 
         // Alarmの処理
@@ -184,7 +183,6 @@
         // ButtonBがクリックされた時の処理
         function btnBClick(e) {
             active = false;
-
         }
 
         // ButtonCがクリックされた時の処理
@@ -201,7 +199,6 @@
 
         }
 
-
         // 繰り返し実行する処理
         function timer() {
             if (active) {
@@ -212,13 +209,17 @@
                 analog(rest);
 
                 if (rest <= 0) {
-                    active = false;
                     alarm();
+                    var audio = new Audio();
+                    audio.src = "pin.wav";
+                    audio.play();
+                    active = false;
                 }
 
             }
 
         }
+
     </script>
 </head>
 
